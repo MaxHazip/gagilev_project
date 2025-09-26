@@ -41,6 +41,12 @@ class Clients(models.Model):
     hotel_room_id = models.ForeignKey(Hotel_rooms, on_delete=models.CASCADE)
     sex_id = models.ForeignKey(Sex, on_delete=models.CASCADE)
 
+class Clients_at_the_event(models.Model):
+    event_id = models.ForeignKey(Events, on_delete=models.CASCADE)
+    client_id = models.ForeignKey(Clients, on_delete=models.CASCADE)
 
+class Dishes(models.Model):
+    name = models.CharField('Название блюда', max_length=30, unique=True)
+    cost = models.DecimalField('Цена', max_digits=10, decimal_places=2)
 
 
